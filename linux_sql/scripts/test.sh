@@ -28,3 +28,4 @@ cpu_kernel= uname -r
 disk_io=$(vmstat --unit M -d | tail -1 | awk -v col="10" '{print $col}')
 disk_available=
 #hostname =
+
