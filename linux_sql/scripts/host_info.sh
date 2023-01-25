@@ -1,3 +1,5 @@
+#! /bin/bash
+
 #Save CLI arguments
 psql_host=$1
 psql_port=$2
@@ -13,8 +15,8 @@ fi
 
 #Cpu info
 lscpu_out=`lscpu`
-
 hostname=$(hostname -f)
+
 #Get relevant information for database
 cpu_number=$(echo "$lscpu_out"  | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)
 cpu_architecture=$(echo "$lscpu_out" | egrep "Architecture:" | awk '{print $2}' | xargs)
