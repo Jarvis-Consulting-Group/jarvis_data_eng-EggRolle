@@ -70,11 +70,15 @@ scripts to run without issue.
 
 ## Database Modeling
 - `host_info`
-| id | hostname | cpu_number | cpu_architecture | cpu_model | cpu_mhz | l2_cache | timestamp | total_mem |
-| 1 | jrvs-remote | 1 | x86_64 | Intel Xeon | 2300 | 256 | 2023-01-01 | 64000 |
+-
+id | hostname | cpu_number | cpu_architecture | cpu_model | cpu_mhz | l2_cache | timestamp | total_mem
+--- | --- | --- | --- | --- | --- | --- | --- | ---
+1 | jrvs-remote | 1 | x86_64 | Intel Xeon | 2300 | 256 | 2023-01-01 | 64000
 - `host_usage`
-| timestamp | host_id | memory_free | cpu_idel | cpu_kernel | disk_io | disk_available |
-| 2023-01-01 | 1 | 30000 | 90 | 4 | 2 | 3 |
+
+timestamp | host_id | memory_free | cpu_idel | cpu_kernel | disk_io | disk_available
+--- | --- | --- | --- | --- | --- | ---
+2023-01-01 | 1 | 30000 | 90 | 4 | 2 | 3
 
 # Test
 To test the bash script's DDL the scripts were ran on the machine in a test environment. The results of the testing demonstrated that the database was able to be set up
