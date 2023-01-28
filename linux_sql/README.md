@@ -49,7 +49,7 @@ specifications such as resource usage which can be used further for resource pla
 through the use of a Docker containter running an instance of a Postgres SQL database containing two tables containing information regarding each server, and 
 live host usage metrics every minute.
 ## Architecture
-![Architecture Diagram](/assets/LinuxArchitecture.png)
+![Architecture Diagram](/linux_sql/assets/LinuxArchitecture.png)
 
 The attatched diagram demonstrates how the project is implemented. Each individual node in the system is responsible fur running its own set of bash scripts
 responsible for regularly qurying data from the machine. This information is passed through the network through a switch which is eventually redirected back to
