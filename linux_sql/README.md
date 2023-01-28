@@ -4,6 +4,7 @@ The program utilizes a monitoring agent which regularly runs bash scripts respon
 which ensure the hardware information is queried and recorded at regular time intervals. The project relies mainly on the uise of bash and PSQL while being managed and deployed through the use of docker and git.
 
 
+
 # Quick Start
 - Start a psql instance using psql_docker.sh
 ```
