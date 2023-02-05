@@ -1,5 +1,7 @@
 # Introduction
 
+The purpose of this project is to practice my PostgreSQL skills by implemening a database representing a club with tables responsible for holding member information, facilities that the club offers, and bookings that members made for these facilities. The project consists of the DDL responsible for setting up the tables in the database as well as various queries to test my ability to interact with the database through the use of operations such as inserts, selects, updates and joins.
+
 # SQL Quries
 
 ###### Table Setup (DDL)
@@ -18,6 +20,8 @@ CREATE TABLE cd.members (
   SET 
     NULL
 );
+
+
 CREATE TABLE cd.bookings (
   facid integer NOT NULL, 
   memid integer NOT NULL, 
@@ -26,6 +30,8 @@ CREATE TABLE cd.bookings (
   CONSTRAINT bookings_pk PRIMARY KEY (facid), 
   CONSTRAINT bookings_fk FOREIGN KEY(memid) REFERENCES cd.members(memid)
 );
+
+
 CREATE TABLE cd.facilities (
   facid integer NOT NULL, 
   name VARCHAR(100) NOT NULL, 
