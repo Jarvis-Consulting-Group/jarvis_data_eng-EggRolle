@@ -4,8 +4,48 @@ The purpose of this project is to practice my PostgreSQL skills by implemening a
 
 # SQL Quries
 
-###### Table Setup (DDL)
+###### Question 1: Insert new facility
 
+```
+INSERT INTO cd.facilities (facid, name, membercost, guestcost,
+						   initialoutlay, monthlymaintenance) VALUES(
+							 9,'Spa',20,30,100000,800);
+```
+
+###### Question 1: Insert new facility
+
+```
+INSERT INTO cd.facilities (facid, name, membercost, guestcost,
+						   initialoutlay, monthlymaintenance) VALUES(
+							 9,'Spa',20,30,100000,800);
+```
+
+###### Question 1: Insert new facility
+
+```
+INSERT INTO cd.facilities (facid, name, membercost, guestcost,
+						   initialoutlay, monthlymaintenance) VALUES(
+							 9,'Spa',20,30,100000,800);
+```
+
+###### Question 1: Insert new facility
+
+```
+INSERT INTO cd.facilities (facid, name, membercost, guestcost,
+						   initialoutlay, monthlymaintenance) VALUES(
+							 9,'Spa',20,30,100000,800);
+```
+
+###### Question 1: Insert new facility
+
+```
+INSERT INTO cd.facilities (facid, name, membercost, guestcost,
+						   initialoutlay, monthlymaintenance) VALUES(
+							 9,'Spa',20,30,100000,800);
+```
+
+###### Table Setup (DDL)
+```
 CREATE TABLE cd.members (
   memid integer NOT NULL, 
   surname VARCHAR(200) NOT NULL, 
@@ -20,8 +60,8 @@ CREATE TABLE cd.members (
   SET 
     NULL
 );
-
-
+```
+```
 CREATE TABLE cd.bookings (
   facid integer NOT NULL, 
   memid integer NOT NULL, 
@@ -30,8 +70,8 @@ CREATE TABLE cd.bookings (
   CONSTRAINT bookings_pk PRIMARY KEY (facid), 
   CONSTRAINT bookings_fk FOREIGN KEY(memid) REFERENCES cd.members(memid)
 );
-
-
+```
+```
 CREATE TABLE cd.facilities (
   facid integer NOT NULL, 
   name VARCHAR(100) NOT NULL, 
@@ -41,13 +81,8 @@ CREATE TABLE cd.facilities (
   monthlymaintenance numeric NOT NULL, 
   CONSTRAINT facilities_pk PRIMARY KEY (facid)
 );
+```
 
-
-###### Question 1: Show all members 
-
-
-
-###### Questions 2: Lorem ipsum...
 
 
 
