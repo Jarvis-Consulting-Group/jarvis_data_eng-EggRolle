@@ -38,6 +38,9 @@ Project source code: [https://github.com/Jarvis-Consulting-Group/jarvis_data_eng
 
 ## Miscellaneous
 - Udemy: Machine Learning A-Z (2020)
-- Video/Photo Editing
-- Competitive gaming
+- Independent Video/Photo Editing
+  - DaVinci Resolve
+  - Adobe Photoshop
+- Competitive Gaming
+  - McMaster ExtraLife Summer Standoff Champion (2020)
 - Longboarding/Skateboarding
