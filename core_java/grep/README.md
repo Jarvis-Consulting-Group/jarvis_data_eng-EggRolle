@@ -1,6 +1,7 @@
 # Introduction
-
-Discuss the design of each app. What does the app do? What technologies have you used? (e.g. core java, libraries, lambda, IDE, docker, etc..)
+The project is the first in a series of core Java applications designed to mimic the Linux 'grep' command which allows users to search for matching lines from files
+using patttern matching through Regex (Regular Expressions). The application takes three arguments: a pattern, root directory to search from, and an output file for 
+matching lines. To function the application relies on core Java fundamentals and employs libraries such as File, BufferedReader/Writer and a few ADTs to process data. Lambda expressions and Streams are also incorporated to improve functionality of the application. The program is deployed as a Docker image, allowing it to easily be run via a few simple Docker commands.
 
 # Quick Start
 How to use your apps? 
@@ -27,7 +28,6 @@ for file in listFilesRecursively(rootDir)
 writeToFile(matchedLines)
 ```
 ## Performance Issue
-(30-60 words)
 The memory issue with the application is that Java Virtual Machines require occup certain amounts of memory depending on their application's requirements. When dealing
 with large amounts of memory, the aplication can be inefficient and require a large heap size. This could be avoided by streaming memory in a more filtered manner
 through the use of data structures like Stream APIs or BufferedReaders.
@@ -40,9 +40,7 @@ such as directories with no files, or files without any matching lines, or data 
 faulures across the applications runtime.
 
 # Deployment
-How you dockerize your app for easier distribution?
-To avoid requiring the use of compiling and use of maven to avoid errors when dealing with build dependencies the application when finished was dockerized to allow for it
-to be run in two simple lines of code specified in the quick start. The image simply has to be pulled and then run with the three given inputs.
+To avoid requiring the use of compiling and use of maven to avoid errors when dealing with build dependencies the application when finished was dockerized to allow for it to be run in two simple lines of code specified in the quick start. The image simply has to be pulled and then run with the three given inputs.
 
 # Improvement
 - Experiment with lambda functions in greater detail
