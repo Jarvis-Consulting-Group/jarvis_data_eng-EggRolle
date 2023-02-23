@@ -25,6 +25,11 @@ public class JavaGrepImp implements JavaGrep{
   private String rootPath;
   private String outFile;
 
+  /**
+   * Implmentation of grep regular expression search implemented in Java
+   *
+   * @param args three arguments, pattern to search, pathto directory to search recursively, output file for matched lines
+   */
   public static void main(String[] args)
   {
     if (args.length != 3)
@@ -54,6 +59,8 @@ public class JavaGrepImp implements JavaGrep{
    * @throws IOException
    */
   public void process() throws IOException {
+
+    //get all files recursively and keep list of matched lines
     try {
       List<File> allFiles = listFiles(getRootPath());
       List<String> matchedLines = new ArrayList<String>();
@@ -82,13 +89,12 @@ public class JavaGrepImp implements JavaGrep{
   public List<File> listFiles(String rootDir) {
 
     List<File> allFiles = new ArrayList<File>();
-
     Queue<File> directories = new LinkedList<File>();
 
     File root = new File(rootDir);
-
     File[] firstList = root.listFiles();
 
+    //Loop through files in root directory
     for (File file : firstList)
     {
       if(file.isDirectory())
@@ -100,6 +106,7 @@ public class JavaGrepImp implements JavaGrep{
       }
     }
 
+    //Recursively search through queue of directories untilno more directories left
     while(!directories.isEmpty())
     {
       String currentDirectory = directories.remove().getPath();
