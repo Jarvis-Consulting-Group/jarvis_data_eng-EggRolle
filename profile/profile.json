@@ -1,0 +1,122 @@
+{
+  "education": [
+    {
+      "awards_achievements": [
+        "GPA: 3.8/4.0"
+      ],
+      "degree": "Honours Bachelor of Science - Computer Science",
+      "department": "Lassonde School of Engineering",
+      "duration": "2018-2022",
+      "school_name": "York University"
+    }
+  ],
+  "github_repo_root_url": "https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle",
+  "highlighted_projects": [
+    {
+      "description": "Examined a dataset pulled from Kaggle providing thousands of data points containing information on trending Youtube videos across the span of a year. Following this I preformed many Data Mining/Machine Learning fundamentals, such as Association Rule Mining, Principle Component Analysis, Classification and K-means Clustering to identify patterns within the data.",
+      "git_url": "https://github.com/EggRolle/Trending-Youtube-Analysis",
+      "name": "Data Mining Capstone Project"
+    },
+    {
+      "description": "Developed a Python application which accesses Spotify's API using a user login which provides JSON objects containing various information on the user's currently playing song. The link to the song's album's cover image is extracted and then adjusted to be stylishly presented as the user's desktop wallpaper. It functions by using several core Python libraries such as requests/oauth2 to access and obtain data from the Spotify API, and the Pillow package to manipulate the image which is used as a desktop wallpaper.",
+      "git_url": "https://github.com/EggRolle/Wallify",
+      "name": "Wallify - Spotify Wallpaper Tool"
+    }
+  ],
+  "jarvis_projects": [
+    {
+      "description": "Designed and implemented a Linux application responsible for recording hardware specifications and usage information of a series of multiple servers connected internally through a switch and which communicate through IPv4 addresses. The program utilizes a monitoring agent which regularly runs bash scripts responsible for querying all of the relevant information from the system, and then inserting it into a Postgres SQL database hosted using a Docker instance. The agent is regulated using a Crontab instance which ensures the hardware information is queried and recorded at regular time intervals.",
+      "git_url": "/linux_sql",
+      "name": "Cluster Monitor"
+    },
+    {
+      "description": [
+        "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      ],
+      "git_url": "/core_java",
+      "name": "Core Java Apps"
+    },
+    {
+      "description": "",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "",
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
+    },
+    {
+      "description": "",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
+    },
+    {
+      "description": "",
+      "git_url": "/spark",
+      "name": "Spark"
+    },
+    {
+      "description": "",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
+    }
+  ],
+  "name": "Nophil Mehboob",
+  "others": [
+    {
+      "bullets": [
+        "Udemy: Machine Learning A-Z (2020)"
+      ],
+      "title": "Certificates"
+    },
+    {
+      "bullets": [
+        "Video/Photo Editing",
+        "Competitive gaming",
+        "Longboarding/Skateboarding"
+      ],
+      "title": "Activities/Hobbies"
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "Jarvis",
+      "description": "Gained valuable experience working on various software development projects in a professional work setting employing an Agile work environment employing regular scum meetings.",
+      "duration": "2023-present",
+      "title": "Software Developer"
+    },
+    {
+      "company": "Kumon",
+      "description": "Worked with a wide variety of students on a weekly basis, setting learning goals and tracking improvements. The position provided me an opportunity to practice and demonstrate my strong communication skills through regularly interacting with students during tutoring sessions and when conveying the student's performance in the program with their parents.",
+      "duration": "2015-2020",
+      "title": "Tutor"
+    }
+  ],
+  "skills": {
+    "competent": [
+      "Javascript",
+      "HTML/CSS",
+      "Agile/Scrum",
+      "Data Mining/Machine Learning Algorithms",
+      "Numpy/Pandas/Matplotlib"
+    ],
+    "familiar": [
+      "Scikit-Learn",
+      "Django",
+      "Node.js",
+      "React",
+      "Docker"
+    ],
+    "proficient": [
+      "Java",
+      "Python",
+      "RDBMS/SQL",
+      "Github",
+      "Linux/Bash"
+    ]
+  },
+  "summary": "I am a recent York University graduate, obtaining my honours bachelor in computer science and am currently employed by Jarvis Technical Consulting as a data engineer. During my time at York I was able to focus on courses and projects largely involved with machine learning/data mining principles during my last year of study and working with relational database systems. Most of my experience and learning exists in the form of my projects all of which I find I'm very passionate about and have enjoyed developing. What I really like about software development and programming is the opportunity to work on projects which are real and tangible, making whatever effort I put in feel meaningful. Its this principle that drives me to continue learning as much as I can to keep developing projects I enjoy working on."
+}
