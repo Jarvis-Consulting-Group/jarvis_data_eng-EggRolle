@@ -1,5 +1,5 @@
 # Introduction
-This project is responsible for employing JDBC, Java Databas Connectivty, to interact with a Postgres database containing pertaining information regarding products,
+This project is responsible for employing JDBC, Java Database Connectivty, to interact with a Postgres database containing pertaining information regarding products,
 orders and customers, mimicing a realistic practice relational database. Core JDBC principles responsible for interacting with the database such as Data Access Objects
 and repository design patterns are implemented to imitate full SQL functionality within through Java while also handling ACID properties such as managing transactions 
 and commits. The Java project employs Maven which is responsible for building the project, managing dependencies, compiling and appropriately testing.
