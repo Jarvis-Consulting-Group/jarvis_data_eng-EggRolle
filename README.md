@@ -19,23 +19,12 @@ Project source code: [https://github.com/Jarvis-Consulting-Group/jarvis_data_eng
 
 **Core Java Apps** [[GitHub](https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle/tree/master/core_java)]:
       
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-
-**Springboot App** [[GitHub](https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle/tree/master/springboot)]: Not Started
-
-**Python Data Analytics** [[GitHub](https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle/tree/master/python_data_anlytics)]: Not Started
-
-**Hadoop** [[GitHub](https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle/tree/master/hadoop)]: Not Started
-
-**Spark** [[GitHub](https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle/tree/master/spark)]: Not Started
-
-**Cloud/DevOps** [[GitHub](https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle/tree/master/cloud_devops)]: Not Started
+  - Grep App: The project is the first in a series of core Java applications designed to mimic the Linux grep command which allows users to search for matching lines from files using patttern matching through Regex (Regular Expressions). The application takes three arguments: a pattern, root directory to search from, and an output file for matching lines. To function the application relies on core Java fundamentals and employs libraries such as File, BufferedReader/Writer and a few ADTs to process data. Lambda expressions and Streams are also incorporated to improve functionality of the application. The program is deployed as a Docker image, allowing it to easily be run via a few simple Docker commands.
+  - JDBC App: This project is responsible for employing JDBC, Java Database Connectivty, to interact with a Postgres database containing pertaining information regarding products, orders and customers, mimicing a realistic practice relational database. Core JDBC principles responsible for interacting with the database such as Data Access Objects and repository design patterns are implemented to imitate full SQL functionality within through Java while also handling ACID properties such as managing transactions and commits.
 
 
 ## Highlighted Projects
-**Data Mining Capstone Project** [[GitHub](https://github.com/EggRolle/Trending-Youtube-Analysis)]: Examined a dataset pulled from Kaggle providing thousands of data points containing information on trending Youtube videos across the span of a year. Following this, I performed many Data Mining/Machine Learning fundamentals, such as Association Rule Mining, Principle Component Analysis, Classification and K-means Clustering to identify patterns within the data.
+**Data Mining Capstone Project** [[GitHub](https://github.com/EggRolle/Trending-Youtube-Analysis)]: Examined a dataset pulled from Kaggle providing thousands of data points containing information on trending Youtube videos across the span of a year. Following this, I performed many Data Mining/Machine Learning algorithms and concepts such as Association Rule Mining, Principle Component Analysis, Classification and K-means Clustering to identify patterns within the data.
 
 **Wallify - Spotify Wallpaper Tool** [[GitHub](https://github.com/EggRolle/Wallify)]: Developed a Python application that accesses Spotify's API using a user login which provides JSON objects containing various information on the user's currently playing song. The link to the song's album's cover image is extracted and then adjusted to be stylishly presented as the user's desktop wallpaper. It functions by using several core Python libraries such as requests/oauth2 to access and obtain data from the Spotify API, and the Pillow package to manipulate the image which is used as a desktop wallpaper.
 
@@ -54,6 +43,6 @@ Project source code: [https://github.com/Jarvis-Consulting-Group/jarvis_data_eng
 
 ## Miscellaneous
 - Udemy: Machine Learning A-Z (2020)
-- Video/Photo Editing
+- Independent Video/Photo Editing
 - Competitive gaming
 - Longboarding/Skateboarding

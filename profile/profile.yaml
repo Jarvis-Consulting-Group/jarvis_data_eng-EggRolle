@@ -41,34 +41,18 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
+      - "Grep App: The project is the first in a series of core Java applications designed to mimic the Linux grep command which allows users to search for matching lines from files using patttern matching through Regex (Regular Expressions). The application takes three arguments: a pattern, root directory to search from, and an output file for matching lines. To function the application relies on core Java fundamentals and employs libraries such as File, BufferedReader/Writer and a few ADTs to process data. Lambda expressions and Streams are also incorporated to improve functionality of the application. The program is deployed as a Docker image, allowing it to easily be run via a few simple Docker commands."
+      - "JDBC App: This project is responsible for employing JDBC, Java Database Connectivty, to interact with a Postgres database containing pertaining information regarding products, orders and customers, mimicing a realistic practice relational database. Core JDBC principles responsible for interacting with the database such as Data Access Objects and repository design patterns are implemented to imitate full SQL functionality within through Java while also handling ACID properties such as managing transactions and commits."
 
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
-    #project name
+  #project name
   - name: "Data Mining Capstone Project"
     #URL is optional
     git_url: "https://github.com/EggRolle/Trending-Youtube-Analysis"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Examined a dataset pulled from Kaggle providing thousands of data points containing information on trending Youtube videos across the span of a year. Following this, I performed many Data Mining/Machine Learning fundamentals, such as Association Rule Mining, Principle Component Analysis, Classification and K-means Clustering to identify patterns within the data."
+    description: "Examined a dataset pulled from Kaggle providing thousands of data points containing information on trending Youtube videos across the span of a year. Following this, I performed many Data Mining/Machine Learning algorithms and concepts such as Association Rule Mining, Principle Component Analysis, Classification and K-means Clustering to identify patterns within the data."
   - name: "Wallify - Spotify Wallpaper Tool"
     git_url: "https://github.com/EggRolle/Wallify"
     description: "Developed a Python application that accesses Spotify's API using a user login which provides JSON objects containing various information on the user's currently playing song. The link to the song's album's cover image is extracted and then adjusted to be stylishly presented as the user's desktop wallpaper. It functions by using several core Python libraries such as requests/oauth2 to access and obtain data from the Spotify API, and the Pillow package to manipulate the image which is used as a desktop wallpaper."
@@ -89,7 +73,7 @@ professional_experience:
     description: "Worked with a wide variety of students on a weekly basis, setting learning goals and tracking improvements. The position provided me an opportunity to practice and demonstrate my strong communication skills through regularly interacting with students during tutoring sessions and when conveying the student's performance in the program with their parents."
 
 #List of edcuation
-education: 
+education:
   - school_name: "York University"
     duration: "2018-2022"
     degree: "Honours Bachelor of Science - Computer Science"
@@ -100,13 +84,13 @@ education:
 
 #Optional section
 others:
-    #category
+  #category
   - title: "Certificates"
     #list of items
     bullets:
       - "Udemy: Machine Learning A-Z (2020)"
   - title: "Activities/Hobbies"
     bullets:
-      - "Video/Photo Editing"
+      - "Independent Video/Photo Editing"
       - "Competitive gaming"
       - "Longboarding/Skateboarding"
