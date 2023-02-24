@@ -1,6 +1,4 @@
 # Introduction
-(50-100 words)
-What does this app do? What technoglies your have used? (JDBC, PSQL, MVN, etc..)
 This project is responsible for employing JDBC, Java Databas Connectivty, to interact with a Postgres database containing pertaining information regarding products,
 orders and customers, mimicing a realistic practice relational database. Core JDBC principles responsible for interacting with the database such as Data Access Objects
 and repository design patterns are implemented to imitate full SQL functionality within through Java while also handling ACID properties such as managing transactions 
