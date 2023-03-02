@@ -1,26 +1,42 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tweet {
   private String created_at;
-  private long id;
+  @JsonProperty("id")
+  private Long id;
   private String id_str;
+  @JsonProperty("text")
   private String text;
+  @JsonProperty("entities")
   private Entities entities;
+  @JsonProperty("coordinates")
   private Coordinates coordinates;
-  private int retweet_count;
-  private int favorite_count;
-  private boolean favorited;
-  private boolean retweeted;
+  @JsonProperty("retweet_count")
+  private Integer retweet_count;
+  @JsonProperty("favorite_count")
+  private Integer favorite_count;
+  @JsonProperty("favorited")
+  private Boolean favorited;
+  @JsonProperty("retweeted")
+  private Boolean retweeted;
 
 
-  public Tweet(String text, Entities entities, float longitude, float latitude)
+  public Tweet(String text, Entities entities, Double Longitude, Double latitude)
+  {
+    this.text = text;
+    this.coordinates = new Coordinates(latitude,Longitude,"type");
+    this.entities = entities;
+  }
+
+  public Tweet()
   {
 
   }
-  public static Tweet buildTweet(String text, float lon, float lat)
+  public static Tweet buildTweet(String text, Double lon, Double lat)
   {
     ArrayList<Hashtag> hashtags = new ArrayList<Hashtag>();
     ArrayList<UserMention> user_mentions = new ArrayList<UserMention>();
@@ -45,6 +61,7 @@ public class Tweet {
 
     Entities entity = new Entities(hashtags, user_mentions);
     Tweet built = new Tweet(text, entity, lon, lat);
+    built.setEntities(entity);
     return built;
   }
 
@@ -56,11 +73,11 @@ public class Tweet {
     this.created_at = created_at;
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -72,10 +89,12 @@ public class Tweet {
     this.id_str = id_str;
   }
 
+  @JsonProperty("text")
   public String getText() {
     return text;
   }
 
+  @JsonProperty("text")
   public void setText(String text) {
     this.text = text;
   }
@@ -96,35 +115,35 @@ public class Tweet {
     this.coordinates = coordinates;
   }
 
-  public int getRetweet_count() {
+  public Integer getRetweet_count() {
     return retweet_count;
   }
 
-  public void setRetweet_count(int retweet_count) {
+  public void setRetweet_count(Integer retweet_count) {
     this.retweet_count = retweet_count;
   }
 
-  public int getFavorite_count() {
+  public Integer getFavorite_count() {
     return favorite_count;
   }
 
-  public void setFavorite_count(int favorite_count) {
+  public void setFavorite_count(Integer favorite_count) {
     this.favorite_count = favorite_count;
   }
 
-  public boolean isFavorited() {
+  public Boolean isFavorited() {
     return favorited;
   }
 
-  public void setFavorited(boolean favorited) {
+  public void setFavorited(Boolean favorited) {
     this.favorited = favorited;
   }
 
-  public boolean isRetweeted() {
+  public Boolean isRetweeted() {
     return retweeted;
   }
 
-  public void setRetweeted(boolean retweeted) {
+  public void setRetweeted(Boolean retweeted) {
     this.retweeted = retweeted;
   }
 }

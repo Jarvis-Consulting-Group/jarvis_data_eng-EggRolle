@@ -6,6 +6,10 @@ public class Entities {
   private ArrayList<Hashtag> hashtags;
   private ArrayList<UserMention> userMentions;
 
+  public Entities()
+  {
+
+  }
   public Entities(ArrayList<Hashtag> hashtags, ArrayList<UserMention> mentions)
   {
     this.hashtags = hashtags;

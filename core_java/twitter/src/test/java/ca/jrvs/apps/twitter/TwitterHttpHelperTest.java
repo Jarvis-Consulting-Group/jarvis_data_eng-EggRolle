@@ -19,7 +19,7 @@ public class TwitterHttpHelperTest
         "\naccessToken: " + accessToken + "\ntokenSecret: " +tokenSecret);
     TwitterHttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken
     , tokenSecret);
-    HttpResponse response = httpHelper.httpGet(new URI("https://api.twitter.com/2/tweets/1629195312064565249"));
+    HttpResponse response = httpHelper.httpGet(new URI("https://api.twitter.com/2/tweets/1630974854609637376"));
     System.out.println(EntityUtils.toString(response.getEntity()));
   }
 

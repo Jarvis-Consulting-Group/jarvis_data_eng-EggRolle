@@ -7,6 +7,7 @@ import oauth.signpost.commonshttp.CommonsHttpOAuthConsumer;
 import oauth.signpost.exception.OAuthException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -45,9 +46,9 @@ public class TwitterHttpHelper implements HttpHelper{
    * @param uri
    * @return
    */
-  public HttpResponse httpPost(URI uri) {
+  public HttpResponse httpPost(URI uri, StringEntity stringEntity) {
     try {
-      return executeHttpRequest(HttpMethod.POST, uri, null);
+      return executeHttpRequest(HttpMethod.POST, uri, stringEntity);
     }catch (OAuthException e)
     {
       throw new RuntimeException("OAuth exception ocurred", e);
@@ -58,12 +59,30 @@ public class TwitterHttpHelper implements HttpHelper{
 
   }
 
+
+  public HttpResponse httpDelete(URI uri)
+  {
+    try
+    {
+      return executeHttpRequest(HttpMethod.DELETE, uri, null);
+    }catch (OAuthException e)
+    {
+      throw new RuntimeException("OAuth exception ocurred", e);
+    }catch(IOException e)
+    {
+      throw new RuntimeException("IO exception ocurred",e);
+    }
+  }
+
   private HttpResponse executeHttpRequest(HttpMethod type, URI uri, StringEntity stringEntity)
     throws OAuthException, IOException
   {
     if(type == HttpMethod.POST)
     {
       HttpPost request = new HttpPost(uri);
+      request.setHeader("content-type", "application/json");
+      request.setHeader("Accept", "application/json");
+      //stringEntity = new StringEntity("{\"text\":\"Hello World from Java3!\"}");
       if(stringEntity != null)
       {
         request.setEntity(stringEntity);
@@ -74,6 +93,12 @@ public class TwitterHttpHelper implements HttpHelper{
     else if(type == HttpMethod.GET)
     {
       HttpGet request = new HttpGet(uri);
+      consumer.sign(request);
+      return httpClient.execute(request);
+    }
+    else if(type == HttpMethod.DELETE)
+    {
+      HttpDelete request = new HttpDelete(uri);
       consumer.sign(request);
       return httpClient.execute(request);
     }

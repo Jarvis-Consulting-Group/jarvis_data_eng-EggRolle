@@ -2,13 +2,28 @@ package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.example.JsonParser;
+import ca.jrvs.apps.twitter.model.Coordinates;
+import ca.jrvs.apps.twitter.model.Entities;
+import ca.jrvs.apps.twitter.model.Hashtag;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.model.UserMention;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import org.apache.catalina.User;
 import org.apache.http.HttpResponse;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class TwitterDao implements CrdDao<Tweet, String>{
 
@@ -22,7 +37,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
   private static final String AMPERSAND = "&";
   private static final String EQUAL = "=";
   //Response code
-  private static final int HTTP_OK = 200;
+  private static final int HTTP_OK = 201;
 
   private HttpHelper httpHelper;
 
@@ -37,11 +52,19 @@ public class TwitterDao implements CrdDao<Tweet, String>{
   public Tweet create(Tweet tweet) {
     URI uri;
     uri = getPostUri(tweet);
+    String body = "{\"text\":\"" + tweet.getText() + "\"}";
+    //System.out.println(body);
+    //String body = "{\"text\":\"Hello World from Java4!\"}";
+    try {
+      StringEntity stringEntity = new StringEntity(body);
+      HttpResponse response = httpHelper.httpPost(uri,stringEntity);
+      return parseResponseBody(response, HTTP_OK);
+    }catch(Exception e)
+    {
+      throw new RuntimeException("Argument error: ",e);
+    }
 
 
-    HttpResponse response = httpHelper.httpPost(uri);
-
-    return parseResponseBody(response, HTTP_OK);
   }
 
   public URI getPostUri(Tweet tweet)
@@ -52,7 +75,8 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     yeah += "status=" + tweet.getText();
     try
     {
-      uri = new URI(yeah);
+      //uri = new URI(yeah);
+      uri = new URI("https://api.twitter.com/2/tweets");
     }catch(URISyntaxException e)
     {
       throw new RuntimeException("Invalid tweet input", e);
@@ -60,7 +84,9 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     return uri;
   }
 
-  private Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode)
+  @JsonIgnoreProperties(ignoreUnknown = true)
+  //@JsonProperty("data")
+  Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode)
   {
     Tweet tweet = null;
 
@@ -79,19 +105,95 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     String jsonStr;
     try
     {
+      System.out.println(response);
       jsonStr = EntityUtils.toString(response.getEntity());
+
     }catch(IOException e){
       throw new RuntimeException("Failed to convert entity to String",e);
     }
 
     //Deter JSON string to Tweet object
-    try
-    {
-      tweet = JsonParser.toObjectFromJson(jsonStr, Tweet.class);
-    }catch(IOException e)
-    {
-      throw new RuntimeException("Unable to convert JSON str to Object", e);
+      System.out.println(jsonStr);
+      JSONObject jo = new JSONObject(jsonStr);
+
+      //Get created Tweet object (post returns incomplete values)
+      long id = jo.getJSONObject("data").getLong("id");
+      try {
+        response = httpHelper.httpGet(new URI("https://api.twitter.com/2/tweets?tweet.fields=entities,public_metrics,geo&ids=" + String.valueOf(id)));
+        jsonStr = EntityUtils.toString(response.getEntity());
+      }catch(Exception e){}
+
+      //Manually parse through JSON object as V2 API does not match internal representation
+      jo = new JSONObject(jsonStr);
+      tweet = new Tweet();
+      jo = jo.getJSONArray("data").getJSONObject(0);
+
+      //Get text field and ID field
+      tweet.setText(jo.getString("text"));
+      tweet.setId(jo.getLong("id"));
+      tweet.setId_str(String.valueOf(tweet.getId()));
+
+
+      //Get all hashtags
+    JSONObject jo2 = jo;
+    ArrayList<Hashtag> tags = new ArrayList<Hashtag>();
+    try {
+      JSONArray ja = jo2.getJSONObject("entities").getJSONArray("hashtags");
+      int n = ja.length();
+
+      for (int i = 0; i < n; i++) {
+        JSONObject temp = ja.getJSONObject(i);
+        Hashtag tag = new Hashtag(temp.getString("tag"), temp.getInt("start"),
+            temp.getInt("end"));
+        tags.add(tag);
+      }
+      //Get all user mentions
+
+      }catch(Exception e) {}
+    ArrayList<UserMention> mentions = new ArrayList<UserMention>();
+    try {
+      JSONArray ja = jo2.getJSONObject("entities").getJSONArray("mentions");
+      int n = ja.length();
+
+      for (int i = 0; i < n; i++) {
+        JSONObject temp = ja.getJSONObject(i);
+        UserMention mention = new UserMention(temp.getString("tag"), temp.getInt("start"),
+            temp.getInt("end"));
+        mentions.add(mention);
+      }
+      //Get all user mentions
+
+    }catch(Exception e) {}
+
+    tweet.setEntities(new Entities(tags, mentions));
+
+    //Get retweet and favorite information
+    try {
+      Integer retweets = Integer.parseInt(
+          jo2.getJSONObject("public_metrics").getString("retweet_count"));
+      tweet.setRetweet_count(retweets);
+      if (retweets > 0) {
+        tweet.setRetweeted(true);
+      } else {
+        tweet.setRetweeted(false);
+      }
+
+      Integer likes = Integer.parseInt(jo2.getJSONObject("public_metrics").getString("like_count"));
+      tweet.setFavorite_count(likes);
+      if (likes > 0) {
+        tweet.setFavorited(true);
+      } else {
+        tweet.setFavorited(false);
+      }
     }
+    catch(Exception e) {}
+
+
+      //Get coordinates
+      //tweet.setEntities(new Entities(tags, new ArrayList<UserMention>()));
+      //Double lat = jo2.getJSONObject("geo").getJSON
+      //Coordinates co = new Coordinates();
+
 
     return tweet;
   }
@@ -116,7 +218,8 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     yeah += "id=" + s;
     try
     {
-      uri = new URI(yeah);
+      //uri = new URI(yeah);
+      uri = new URI("https://api.twitter.com/2/tweets/" + s);
     }catch(URISyntaxException e)
     {
       throw new RuntimeException("Invalid tweet input", e);
@@ -132,9 +235,14 @@ public class TwitterDao implements CrdDao<Tweet, String>{
    */
   public Tweet deleteById(String s) {
     URI uri = getDeleteUri(s);
-    HttpResponse response = httpHelper.httpPost(uri);
+    try {
+      HttpResponse response = httpHelper.httpDelete(uri);
+      return parseResponseBody(response, HTTP_OK);
 
-    return parseResponseBody(response, HTTP_OK);
+    }catch(Exception e)
+    {
+      throw new RuntimeException("placeholder:", e);
+    }
   }
 
   public URI getDeleteUri(String s) {
@@ -145,7 +253,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     yeah += "id=" + s;
     try
     {
-      uri = new URI(yeah);
+      uri = new URI("https://api.twitter.com/2/tweets/" + s);
     }catch(URISyntaxException e)
     {
       throw new RuntimeException("Invalid tweet input", e);

@@ -1,11 +1,11 @@
 package ca.jrvs.apps.twitter.model;
 
 public class Coordinates {
-  private float[] coordinates;
+  private Double[] coordinates;
   String type;
-  public Coordinates(float longitude, float latitude, String type)
+  public Coordinates(Double longitude, Double latitude, String type)
   {
-    coordinates = new float[] {longitude, latitude};
+    coordinates = new Double[] {longitude, latitude};
     this.type = type;
   }
 }
