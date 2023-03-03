@@ -11,7 +11,7 @@ public interface HttpHelper {
    * @param uri
    * @return
    */
-  HttpResponse httpPost(URI uri);
+  HttpResponse httpPost(URI uri, StringEntity stringEntity);
 
   /**
    * Execute a HTTP Get call
@@ -19,4 +19,6 @@ public interface HttpHelper {
    * @return
    */
   HttpResponse httpGet(URI uri);
+
+  HttpResponse httpDelete(URI uri);
 }
