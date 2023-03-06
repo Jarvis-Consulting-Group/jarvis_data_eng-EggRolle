@@ -2,6 +2,7 @@ package ca.jrvs.apps.twitter.service;
 
 import static org.junit.Assert.*;
 
+import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.model.Tweet;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class TwitterServiceIntTest {
     TwitterHttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken
         , tokenSecret);
 
-    service = new TwitterService(httpHelper);
+    service = new TwitterService(new TwitterDao(httpHelper));
   }
 
   @Test
@@ -39,7 +40,7 @@ public class TwitterServiceIntTest {
   @Test
   public void showTweet() {
     //Tweet tweet = new Tweet();
-    String id = "1631359205725593605";
+    String id = "1632272541510164481";
     String[] fields = {"text","id","entities"};
     //Tweet tweet = Tweet.buildTweet(text, 5.0, 5.0);
     Tweet tweet = service.showTweet(id,fields);

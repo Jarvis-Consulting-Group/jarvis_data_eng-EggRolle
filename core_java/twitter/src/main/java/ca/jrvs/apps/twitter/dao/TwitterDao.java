@@ -92,7 +92,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
 
     //Check status
     int status = response.getStatusLine().getStatusCode();
-    if(status != expectedStatusCode)
+    if(status != 200 && status != 201)
     {
       throw new RuntimeException("Undexpected HTTP status: " + status);
     }
@@ -207,7 +207,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     URI uri = getGetUri(s);
     HttpResponse response = httpHelper.httpGet(uri);
 
-    return parseResponseBody(response, HTTP_OK);
+    return parseResponseBody(response, 201);
   }
 
   public URI getGetUri(String s)

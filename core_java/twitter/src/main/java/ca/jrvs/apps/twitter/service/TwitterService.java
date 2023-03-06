@@ -12,9 +12,9 @@ public class TwitterService implements Service{
   private TwitterDao dao;
 
 
-  public TwitterService(TwitterHttpHelper helper)
+  public TwitterService(TwitterDao helper)
   {
-    this.dao = new TwitterDao(helper);
+    this.dao = helper;
   }
 
   /**
@@ -53,8 +53,10 @@ public class TwitterService implements Service{
    */
   public Tweet showTweet(String id, String[] fields) {
     Tweet tweet = null;
+    tweet = dao.findById(id);
+    return tweet;
+/*
     try {
-      tweet = dao.findById(id);
       for (String field : fields) {
         if (!field.contains("text")) {
           tweet.setText(null);
@@ -78,9 +80,8 @@ public class TwitterService implements Service{
     {
       throw new IllegalArgumentException("Tweet id in invalid: " + id);
     }
+*/
 
-
-    return tweet;
   }
 
   /**

@@ -36,6 +36,7 @@ public class TwitterDaoTest {
     Tweet tweet = Tweet.buildTweet(text, lat, lon);
     tweet = dao.create(tweet);
 
+
     assertEquals(text, tweet.getText());
     //assertNotNull(tweet.getCoordinates());
     //assertEquals(2, tweet.getCoordinates());
