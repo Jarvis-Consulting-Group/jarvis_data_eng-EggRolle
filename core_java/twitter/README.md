@@ -18,9 +18,9 @@ docker run --rm \
 -e consumerSecret=YOUR_VALUE \
 -e accessToken=YOUR_VALUE \
 -e tokenSecret=YOUR_VALUE \
-jrvs/twitter_app post "text to post" "latitude:longitude"
-jrvs/twitter_app show "id"
-jrvs/twitter_app delete id1:id2:id3...
+eggrolle/twitter post "text to post" "latitude:longitude"
+eggrolle/twitter show "id"
+eggrolle/twitter delete id1:id2:id3...
 ```
 ## Running with Maven
 ```
@@ -33,19 +33,32 @@ java -jar target/twitter1.0.0.jar post|show|delete [arguments]
 
 # Design
 ## UML diagram
-## explain each component(app/main, controller, service, DAO) (30-50 words each)
+UML_Diagram(/core_java/twitter/assets/UMLTwitter.png)
+### TwitterCLIApp/Main
+The main runnable class responsible for building all related class objects and setting up dependencies between them. Accepts arguments specifying app functionality
+in the form of: post|show|delete [arguments].
+### TwitterHttpHelper
+Responsible for all of the core HTTP fuinctionality with a given URI, executes requests of the type POST, GET and DELETE. Sets up Http requests, specifying tweet data in the body and using OAuthConsumer to set authorization in the header through the use of four mandatory keys, consumerKey, consumerSecret, accessToken and accessSecret. 
+### TwitterDAO
+Constructs the Twitter REST API URI's and Http bodies required for the Twitter V2 API. After constructing URIs and employing TwitterHttpHelper's functionality to pass
+requests to the Twitter API, the class also parses the JSON Object provided in the HTTP response and builds a corresponding Tweet object through a String representation of the JSON Object.
+### TwitterService
+The service layer of the application, responsible for validating arguments passed into the TwitterController before being sent to TwitterDao.
+### TwitterController
+The controller layer of the application, used to consumer the user input and calling the corresponding service layer method to either post, show or delete Tweets. 
 ## Models
-Talk about tweet model
+The project employs objects/classes to match the internal representation of Tweets within the Twitter API. The Tweet class in this proejct contains a few of the most pertinent fields of information stored for each tweet in the Twitter database. These are fields like text, the main bodt of text, retweeted_count, id, favorite_count, retweeted etc. The model also employs further objects named 'Entities' and 'Coordinates' to store further information Tweets hold, such as hashtags, user mentions and coordinates of the tweet location.
 ## Spring
 - How you managed the dependencies using Spring?
+Spring is used to avoid typical linear dependency management problems. Initially the project ran by having all classes/components instantiated through a single main method which is also responsible for dependency injection. The project employs spring to hand IoC, inversion of control, to simplify and clean up this process. The project ueses the component scan method to identify spring beans/components across the project and automatically instantiate these objects and set up dependency injection, simplifying its functionality.
 
 # Test
-How did you test you app using Junit and mockito?
+The application was tested using Junit and Mockito. Junit was used for integration stesting to test CRUD operations in the project from the top down every time a new layer was added to the MVC archetecture. Mockito was used similarily at every stage of development although for the purpose of Unit testing, to check if newer blocks of code implemented ran correctly without necessarily needing to test every layer of the project below it t horugh the use of Mock objects to mimic behaviors and spying to ensure objects were functioning correctly.
 
 ## Deployment
-How did you dockerize your app.
+The completed project was built into a single Uber Jar fiel cotaning all of our code/classes as well as our various dependencies. This single jar was then uploaded to Docker Hub as an image under the title eggrolle/twitter which can conveniently be pulled and run as a container as specified in the quick start section.
 
 # Improvements
-- Imporvement 1
-- Imporvement 2
-- Imporvement 3
+- Add the option for different kinds of searches across Tweets. Instead of searching by ID search by keywords or hashtags etc.
+- Experiment with some larger scale use of the Twitter API which looks at more aggregate data across Tweets.
+- Improve/add more tests using Mockito
