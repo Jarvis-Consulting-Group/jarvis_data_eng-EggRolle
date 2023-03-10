@@ -1,5 +1,4 @@
 # Introduction
-(50-100 words)
 What does this app do? What technoglies you have used? (e.g. Twitter REST API, HTTP client, mvn, Java libs, docker etc..)
 The app is responsible for providing interactivity with the Twitter API to perform CRUD operations through the command line interface, allowing for users to post,
 update, delete and search tweets. The project is implemented entirely through the use of Java and employs several key Java frameworks/libraries to ensure functionality;
