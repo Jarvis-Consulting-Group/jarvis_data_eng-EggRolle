@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tweet {
+  //s
   private String created_at;
   @JsonProperty("id")
   private Long id;
