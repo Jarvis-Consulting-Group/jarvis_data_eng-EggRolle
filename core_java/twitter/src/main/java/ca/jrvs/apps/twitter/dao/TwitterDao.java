@@ -24,7 +24,10 @@ import javax.json.JsonArray;
 import javax.json.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String>{
 
   //URI constants
@@ -41,6 +44,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
 
   private HttpHelper httpHelper;
 
+  @Autowired
   public TwitterDao(HttpHelper httpHelper){ this.httpHelper = httpHelper;}
 
   /**
