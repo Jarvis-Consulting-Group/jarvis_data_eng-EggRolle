@@ -11,9 +11,7 @@ the final application. Finally the project is managed using Maven to handle load
 project can be ran with greater ease in just a few lines using its dockerized version hosted on Docker Hub.
 
 # Quick Start
-- how to package your app using mvn?
-- how to run your app with docker?
-##Running with Docker
+## Running with Docker
 ```
 docker run --rm \
 -e consumerKey=YOUR_VALUE \
@@ -24,7 +22,7 @@ jrvs/twitter_app post "text to post" "latitude:longitude"
 jrvs/twitter_app show "id"
 jrvs/twitter_app delete id1:id2:id3...
 ```
-##Running with Maven
+## Running with Maven
 ```
 #Package app
 mvn clean compile package
