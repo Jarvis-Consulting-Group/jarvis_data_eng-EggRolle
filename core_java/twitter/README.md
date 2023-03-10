@@ -49,7 +49,6 @@ The controller layer of the application, used to consumer the user input and cal
 ## Models
 The project employs objects/classes to match the internal representation of Tweets within the Twitter API. The Tweet class in this proejct contains a few of the most pertinent fields of information stored for each tweet in the Twitter database. These are fields like text, the main bodt of text, retweeted_count, id, favorite_count, retweeted etc. The model also employs further objects named 'Entities' and 'Coordinates' to store further information Tweets hold, such as hashtags, user mentions and coordinates of the tweet location.
 ## Spring
-- How you managed the dependencies using Spring?
 Spring is used to avoid typical linear dependency management problems. Initially the project ran by having all classes/components instantiated through a single main method which is also responsible for dependency injection. The project employs spring to hand IoC, inversion of control, to simplify and clean up this process. The project ueses the component scan method to identify spring beans/components across the project and automatically instantiate these objects and set up dependency injection, simplifying its functionality.
 
 # Test
