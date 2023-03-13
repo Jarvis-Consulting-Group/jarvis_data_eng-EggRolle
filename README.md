@@ -1,14 +1,14 @@
 # Nophil Mehboob . Jarvis Consulting
 
-I am a recent York University graduate, obtaining my honors bachelor in computer science and am currently employed by Jarvis Technical Consulting as a data engineer. During my time at York, I focused on exploring courses and projects largely involving machine learning, data mining principles and working with relational database systems. I am very passionate about developing and enjoy applying myself through the many projects I have worked on in the past, using every project I tackle as a learning experience to grow my knowledge and imporve my programming skills. What I like about software development and programming is having the opportunity to work on projects where I can really see my work and effort come to life. Being able to ship out code or an application which I know is having an impact is the principle that drives me to continue learning as much as I can in an effort to keep developing projects I enjoy working on.
+I am a recent York University graduate, obtaining my honors bachelor in computer science and am currently employed by Jarvis Technical Consulting as a data engineer. During my time at York, I focused on exploring courses and projects largely involving machine learning, data mining principles and working with relational database systems. I am very passionate about developing and enjoy applying myself through the many projects I have worked on in the past, using every project I tackle as a learning experience to grow my knowledge and improve my programming skills. What I like about software development and programming is having the opportunity to work on projects where I can really see my work and effort come to life. Being able to ship out code or an application which I know is having an impact is the principle that drives me to continue learning as much as I can in an effort to keep developing projects I enjoy working on.
 
 ## Skills
 
 **Proficient:** Java, Python, RDBMS/SQL, Github, Linux/Bash
 
-**Competent:** Javascript, HTML/CSS, Agile/Scrum, Data Mining/Machine Learning Algorithms, Numpy/Pandas/Matplotlib
+**Competent:** Javascript, Hadoop, Agile/Scrum, Data Mining/Machine Learning Algorithms, Numpy/Pandas/Matplotlib
 
-**Familiar:** Scikit-Learn, Django, Node.js, React, Docker
+**Familiar:** Scikit-Learn, Django, HTML/CSS, Node.js, React, Docker
 
 ## Jarvis Projects
 
@@ -20,7 +20,8 @@ Project source code: [https://github.com/Jarvis-Consulting-Group/jarvis_data_eng
 **Core Java Apps** [[GitHub](https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle/tree/master/core_java)]:
       
   - Grep App: The project is the first in a series of core Java applications designed to mimic the Linux grep command which allows users to search for matching lines from files using patttern matching through Regex (Regular Expressions). The application takes three arguments: a pattern, root directory to search from, and an output file for matching lines. To function the application relies on core Java fundamentals and employs libraries such as File, BufferedReader/Writer and a few ADTs to process data. Lambda expressions and Streams are also incorporated to improve functionality of the application. The program is deployed as a Docker image, allowing it to easily be run via a few simple Docker commands.
-  - JDBC App: This project is responsible for employing JDBC, Java Database Connectivty, to interact with a Postgres database containing pertaining information regarding products, orders and customers, mimicing a realistic practice relational database. Core JDBC principles responsible for interacting with the database such as Data Access Objects and repository design patterns are implemented to imitate full SQL functionality within through Java while also handling ACID properties such as managing transactions and commits.
+  - JDBC App: This project is responsible for employing JDBC, Java Database Connectivity, to interact with a Postgres database containing pertaining information regarding products, orders and customers, mimicing a realistic practice relational database. Core JDBC principles responsible for interacting with the database such as Data Access Objects and repository design patterns are implemented to imitate full SQL functionality within through Java while also handling ACID properties such as managing transactions and commits.
+  - Twitter App: A large scale application responsible for providing interactivity with the Twitter API to perform CRUD operations through the command line interface, allowing for users to post, update, delete and search tweets. The project is implemented entirely through the use of Java and employs several key Java frameworks/libraries to ensure functionality; Apache HTTP libraries an OAuth libraries are used to establish an HTTP connection with the Twitter API service and authenticate users, while the Jackson library is used to interpret JSON strings provided with Http responses. The project also employs the Java Spring framework with its component scan implementation to use its IoC to aid in building and injecting class dependencies within the final application. Finally the project is managed using Maven to handle loading dependencies, building the project and running integration and unit tests.
 
 
 ## Highlighted Projects
