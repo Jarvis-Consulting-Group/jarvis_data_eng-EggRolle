@@ -1,0 +1,96 @@
+# Preferred name (Characters only)
+name: "Nophil Mehboob"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/Jarvis-Consulting-Group/jarvis_data_eng-EggRolle
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: "I am a recent York University graduate, obtaining my honors bachelor in computer science and am currently employed by Jarvis Technical Consulting as a data engineer. During my time at York, I focused on exploring courses and projects largely involving machine learning, data mining principles and working with relational database systems. I am very passionate about developing and enjoy applying myself through the many projects I have worked on in the past, using every project I tackle as a learning experience to grow my knowledge and improve my programming skills. What I like about software development and programming is having the opportunity to work on projects where I can really see my work and effort come to life. Being able to ship out code or an application which I know is having an impact is the principle that drives me to continue learning as much as I can in an effort to keep developing projects I enjoy working on."
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Java
+    - Python
+    - RDBMS/SQL
+    - Github
+    - Linux/Bash
+  # At least 5 skills
+  competent:
+    - Javascript
+    - HTML/CSS
+    - Agile/Scrum
+    - Data Mining/Machine Learning Algorithms
+    - Numpy/Pandas/Matplotlib
+  # At least 5 skills
+  familiar:
+    - Scikit-Learn
+    - Django
+    - Node.js
+    - React
+    - Docker
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Designed and implemented a Linux application responsible for recording hardware specifications and usage information of a series of multiple servers connected internally through a switch and which communicate through IPv4 addresses. The program utilizes a monitoring agent which regularly runs bash scripts responsible for querying all of the relevant information from the system, and then inserting it into a Postgres SQL database hosted using a Docker instance. The agent is regulated using a Crontab instance which ensures the hardware information is queried and recorded at regular time intervals."
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Grep App: The project is the first in a series of core Java applications designed to mimic the Linux grep command which allows users to search for matching lines from files using patttern matching through Regex (Regular Expressions). The application takes three arguments: a pattern, root directory to search from, and an output file for matching lines. To function the application relies on core Java fundamentals and employs libraries such as File, BufferedReader/Writer and a few ADTs to process data. Lambda expressions and Streams are also incorporated to improve functionality of the application. The program is deployed as a Docker image, allowing it to easily be run via a few simple Docker commands."
+      - "JDBC App: This project is responsible for employing JDBC, Java Database Connectivty, to interact with a Postgres database containing pertaining information regarding products, orders and customers, mimicing a realistic practice relational database. Core JDBC principles responsible for interacting with the database such as Data Access Objects and repository design patterns are implemented to imitate full SQL functionality within through Java while also handling ACID properties such as managing transactions and commits."
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+  #project name
+  - name: "Data Mining Capstone Project"
+    #URL is optional
+    git_url: "https://github.com/EggRolle/Trending-Youtube-Analysis"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Examined a dataset pulled from Kaggle providing thousands of data points containing information on trending Youtube videos across the span of a year. Following this, I performed many Data Mining/Machine Learning algorithms and concepts such as Association Rule Mining, Principle Component Analysis, Classification and K-means Clustering to identify patterns within the data."
+  - name: "Wallify - Spotify Wallpaper Tool"
+    git_url: "https://github.com/EggRolle/Wallify"
+    description: "Developed a Python application that accesses Spotify's API using a user login which provides JSON objects containing various information on the user's currently playing song. The link to the song's album's cover image is extracted and then adjusted to be stylishly presented as the user's desktop wallpaper. It functions by using several core Python libraries such as requests/oauth2 to access and obtain data from the Spotify API, and the Pillow package to manipulate the image which is used as a desktop wallpaper."
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2023-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Gained valuable experience working on various software development projects in a professional work setting employing an Agile work environment employing regular scum meetings."
+  - title: "Tutor"
+    company: "Kumon"
+    duration: "2015-2020"
+    description: "Worked with a wide variety of students on a weekly basis, setting learning goals and tracking improvements. The position provided me an opportunity to practice and demonstrate my strong communication skills through regularly interacting with students during tutoring sessions and when conveying the student's performance in the program with their parents."
+
+#List of edcuation
+education:
+  - school_name: "York University"
+    duration: "2018-2022"
+    degree: "Honours Bachelor of Science - Computer Science"
+    department: "Lassonde School of Engineering"
+    # optional
+    awards_achievements:
+      - "GPA: 3.8/4.0"
+
+#Optional section
+others:
+  #category
+  - title: "Certificates"
+    #list of items
+    bullets:
+      - "Udemy: Machine Learning A-Z (2020)"
+  - title: "Activities/Hobbies"
+    bullets:
+      - "Independent Video/Photo Editing"
+      - "Competitive gaming"
+      - "Longboarding/Skateboarding"
